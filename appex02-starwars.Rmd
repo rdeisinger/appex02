@@ -14,7 +14,7 @@ output:
 library(tidyverse)
 ```
 
-## Clone Assignment Repo
+## Clone assignment repo
 
 1. Go to your `appex02-[username]` repo on GitHub.  
    Click on this repo.
