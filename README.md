@@ -2,10 +2,11 @@
 
 ## Learning objectives
 
-- Cloning a project from GitHub to RStudio Cloud
-- Knitting documents
-- Working with ggplot2
-- Committing and pushing changes to GitHub
+- Version control using git and GitHub
+- Working with package ggplot2
+  - create scatter plots
+  - create histograms
+  - understand aesthetics
 
 ## References
 
