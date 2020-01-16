@@ -65,6 +65,15 @@ ggplot(data = starwars %>%
 
 ```{r}
 ggplot(data = starwars %>%
+          filter(gender %in% c("female", "male", NA)), 
+       aes(x = mass)) + 
+   geom_density() + 
+   facet_wrap( ~ gender)
+
+```
+
+```{r}
+ggplot(data = starwars %>%
           filter(!is.na(gender)), 
        aes(x = factor(eye_color), y = birth_year, fill = gender)) + 
    geom_boxplot() + coord_flip()
