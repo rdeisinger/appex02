@@ -1,13 +1,17 @@
 ---
 title: "Visualizing Star Wars characters"
-author: ""
-date: ""
-output: 
+author: 'Bob Eisinger'
+date: '1-16-2020'
+output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    number_sections: false
-    toc_float: true
     df_print: paged
+    number_sections: no
+    toc: yes
+    toc_float: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r load-packages, include=FALSE}
@@ -38,16 +42,11 @@ library(tidyverse)
 Type the following lines of code in the **Console** in RStudio - filling in 
 your name and email address.
 
-```{r config-git-ex, eval=FALSE}
-library(usethis)
-use_git_config(user.name="your name", user.email="your email")
-```
-
 For example, mine would be  
 
-```{r config-git-ex2, eval=FALSE}
+```{r config-git-ex, eval=FALSE}
 library(usethis)
-use_git_config(user.name="Shawn Santo", user.email="shawn.santo@duke.edu")
+use_git_config(user.name="Robert Eisinger", user.email="robert.eisinger@duke.edu")
 ``````
 
 **RStudio and GitHub can now communicate with each other and you are **
@@ -55,14 +54,25 @@ use_git_config(user.name="Shawn Santo", user.email="shawn.santo@duke.edu")
 
 ## Some `ggplot2` practice
 
-1. Modify the following plot to change the color of all points to a color of
-   your choice. Adjust the figure width size and height as you see fit.
+1. Modify the following plot to change the color of all points to a color of your choice. Adjust the figure width size and height as you see fit.
 
 ```{r starwars-plot, fig.width=8, fig.height=5}
 ggplot(data = starwars, 
        mapping = aes(x = height, y = mass, color = gender, size = birth_year)) +
-  geom_point(color = "#30509C") +
-  labs(title = "_____" , size = "_____", x = "_____", y = "_____")
+  geom_point(color = "dodgerblue") +
+  labs(title = "Size of Characters" , size = "Birth Year", x = "Height", y = "Mass")
+```
+
+```{r}
+starwars %>%
+   mutate(bmi = height / mass) %>%
+   arrange((bmi)) %>%
+   print(n = 6, width = Inf)
+
+ggplot(data = starwars,
+       mapping = aes(x = birth_year, y = height / mass)) + 
+   geom_point()
+
 ```
 
 2. Add labels for `title`, `x` and `y` axes, and `size` of points. Knit again.
