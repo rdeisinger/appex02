@@ -63,6 +63,12 @@ ggplot(data = starwars,
 ```
 
 ```{r}
+ggplot(data = starwars, 
+       aes(x = factor(eye_color), y = birth_year, fill = gender)) + 
+   geom_boxplot() + coord_flip()
+```
+
+```{r}
 starwars %>%
    mutate(bmi = height / mass) %>%
    arrange((bmi)) %>%
