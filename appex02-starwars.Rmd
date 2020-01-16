@@ -59,7 +59,7 @@ use_git_config(user.name="Robert Eisinger", user.email="robert.eisinger@duke.edu
 ```{r starwars-plot, fig.width=8, fig.height=5}
 ggplot(data = starwars, 
        mapping = aes(x = height, y = mass, color = gender, size = birth_year)) +
-  geom_point(color = "dodgerblue") +
+  geom_point(color = "purple") +
   labs(title = "Size of Characters" , size = "Birth Year", x = "Height", y = "Mass")
 ```
 
@@ -81,7 +81,12 @@ ggplot(data = starwars,
    code in the chunk below.
    
 ```{r starwars-histogram}
+ggplot(data = starwars, aes(x = mass)) + 
+   geom_histogram()
 
+starwars %>%
+   arrange(desc(mass)) %>%
+   print(n = 4, width = Inf)
 ```
    
 ## Stage, commit and push
