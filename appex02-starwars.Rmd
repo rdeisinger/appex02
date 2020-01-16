@@ -49,8 +49,7 @@ library(usethis)
 use_git_config(user.name="Robert Eisinger", user.email="robert.eisinger@duke.edu")
 ``````
 
-**RStudio and GitHub can now communicate with each other and you are **
-**ready to do the exercise below!**
+**RStudio and GitHub can now communicate with each other and you are ready to do the exercise below!**
 
 ## Some `ggplot2` practice
 
