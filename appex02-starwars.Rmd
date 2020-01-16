@@ -56,14 +56,16 @@ use_git_config(user.name="Robert Eisinger", user.email="robert.eisinger@duke.edu
 1. Modify the following plot to change the color of all points to a color of your choice. Adjust the figure width size and height as you see fit.
 
 ```{r starwars-plot, fig.width=8, fig.height=5}
-ggplot(data = starwars, 
-       mapping = aes(x = height, y = mass, color = gender, size = birth_year)) +
-  geom_point(color = "purple") +
+ggplot(data = starwars %>%
+          filter(!is.na(gender)), 
+       mapping = aes(x = birth_year, y = height, color = gender)) +
+  geom_point() +
   labs(title = "Size of Characters" , size = "Birth Year", x = "Height", y = "Mass")
 ```
 
 ```{r}
-ggplot(data = starwars, 
+ggplot(data = starwars %>%
+          filter(!is.na(gender)), 
        aes(x = factor(eye_color), y = birth_year, fill = gender)) + 
    geom_boxplot() + coord_flip()
 ```
